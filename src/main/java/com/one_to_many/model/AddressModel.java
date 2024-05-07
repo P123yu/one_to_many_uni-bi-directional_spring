@@ -1,8 +1,4 @@
 package com.one_to_many.model;
-
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -22,19 +18,10 @@ public class AddressModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long addressId;
     private String City;
-
-   //@JsonBackReference
-    //@JsonIgnore
-
-    // default fetch type for ManyToOne: EAGER
-    //@ManyToOne(fetch = FetchType.LAZY)
-
-//    @JsonIgnore
-
-
+    
     @JsonManagedReference
-    @ManyToOne(cascade=CascadeType.ALL)
+    //@ManyToOne(cascade=CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "stu_roll")
-
     private StudentModel studentModel;
 }
