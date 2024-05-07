@@ -26,6 +26,6 @@ public class StudentModel {
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "stu_roll", referencedColumnName = "stuRoll")
-    private Set<AddressModel> address = new HashSet<>();
+    private Set<AddressModel> address = new HashSet<>();    // for sorted data use TreeSet
 
 }
