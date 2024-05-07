@@ -24,6 +24,9 @@ public class StudentModel {
     private String stuName;
     private Double stuMarks;
 
+
+    // default fetch type for OneToMany: LAZY
+    
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "stu_roll", referencedColumnName = "stuRoll")
     private Set<AddressModel> address = new HashSet<>();    // for sorted data use TreeSet
